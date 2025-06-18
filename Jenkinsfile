@@ -24,6 +24,7 @@ pipeline {
             }
         }
     }
+    //this is overall pipeline condition
     post { 
         always { 
             echo 'This section always runs!'
