@@ -28,10 +28,10 @@ pipeline {
             echo 'This section always runs!'
         }
         sucess {
-             echo 'This section runs when pipeline sucess'
+            echo 'This section runs when pipeline sucess'
         }
         failure {
-             echo 'This section runs when pipeline failed'
+            echo 'This section runs when pipeline failed'
         }
     }
 }
