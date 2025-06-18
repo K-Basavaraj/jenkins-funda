@@ -15,6 +15,7 @@ pipeline {
         stage('pre-deploy') {
             steps {
                sh 'echo pre-Deploying....'
+               error predeploy---> //the post action should show error
             }
         }
         stage('Deploy') {
