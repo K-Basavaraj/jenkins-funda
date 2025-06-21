@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label "AGENT-1"
+    }
 
     stages {
         stage('Build') {
@@ -15,7 +17,7 @@ pipeline {
         stage('pre-deploy') {
             steps {
                sh 'echo pre-Deploying....'
-               error 'predeploy failing' //the post action should show failure only
+               //error 'predeploy failing' //the post action should show failure only
             }
         }
         stage('Deploy') {
