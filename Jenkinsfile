@@ -1,12 +1,16 @@
 pipeline {
     agent {
-        label "AGENT-1"
+        label 'AGENT-1'
+    }
+    options {
+        timeout(time: 1, unit: 'SECONDS')
     }
 
     stages {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh 'sleep 10'
             }
         }
         stage('Test') {
@@ -16,8 +20,8 @@ pipeline {
         }
         stage('pre-deploy') {
             steps {
-               sh 'echo pre-Deploying....'
-               //error 'predeploy failing' //the post action should show failure only
+                sh 'echo pre-Deploying....'
+            //error 'predeploy failing' //the post action should show failure only
             }
         }
         stage('Deploy') {
@@ -27,10 +31,10 @@ pipeline {
         }
     }
     //this is overall pipeline condition
-    post { 
-        always { 
+    post {
+        always {
             echo 'This section always runs!'
-            deleteDir() //in jenkins this function will delete build history after finsh run pipeline.
+            deleteDir() //in jenkins this function will delete the workspace directory of the job on the agent (VM/container)
         }
         success {
             echo 'This section runs when pipeline sucess'
