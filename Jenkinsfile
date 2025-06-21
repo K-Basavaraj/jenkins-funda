@@ -30,6 +30,7 @@ pipeline {
     post { 
         always { 
             echo 'This section always runs!'
+            deleteDir() //in jenkins this function will delete build history after finsh run pipeline.
         }
         success {
             echo 'This section runs when pipeline sucess'
